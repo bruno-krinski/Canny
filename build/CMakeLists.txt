@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 2.8)
+project(Canny)
+find_package(OpenCV REQUIRED)
+include_directories(../include)
+set(SOURCES ../src/main.cpp ../src/Canny.cpp ../src/functions.cpp)
+add_executable(main ${SOURCES})
+set(EXECUTABLE_OUTPUT_PATH "../bin")
+target_link_libraries(main ${OpenCV_LIBS})

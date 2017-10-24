@@ -1,0 +1,3 @@
+/home/bruno/Documentos/Projetos/workspace/Canny/build/CMakeFiles/rebuild_cache.dir
+/home/bruno/Documentos/Projetos/workspace/Canny/build/CMakeFiles/main.dir
+/home/bruno/Documentos/Projetos/workspace/Canny/build/CMakeFiles/edit_cache.dir
