@@ -12,14 +12,15 @@
 class Canny{
 
 private:
-	cv::Mat gaussianBlur(cv::Mat& image, unsigned int blurMaskSize);
-	void findGradient();
-	void nonMaximumSuppression();
-	void doubleThreshold();
-	void hysteresis();
+	cv::Mat gaussianBlur(const cv::Mat& image, unsigned int blurMaskSize, double sigma);
+	cv::Mat findGradient(cv::Mat image, std::vector<double>& gradient, std::vector<int>& angle);
+	void nonMaximumSuppression(cv::Mat& image, const std::vector<double>& gradients, const std::vector<int>& angles);
+	void doubleThreshold(cv::Mat& image, unsigned int minThreshold, unsigned int maxThreshold,const std::vector<double>& gradients, std::vector<int>& strength);
+	void hysteresis(cv::Mat& image, const std::vector<int>& strength);
+	std::vector<double> createKernel(unsigned int blurMaskSize, double sigma);
 
 public:
-	Canny(cv::Mat image, unsigned int min, unsigned int max, bool parallel=false);
+	Canny(cv::Mat image, unsigned int minThreshold, unsigned int maxThreshold, bool parallel = false);
 	~Canny();
 };
 
